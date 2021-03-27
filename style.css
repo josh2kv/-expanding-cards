@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+/* div {
+  border: 0.5px dotted red;
+} */
+.container {
+  display: flex;
+  width: 90vw;
+  justify-content: center;
+}
+
+.panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  margin: 10px;
+  cursor: pointer;
+  /* 모든 Items의 총 증가 너비(flex-grow)에서 각 Item의 증가 너비의 비율 만큼 너비 */
+  flex: 0.5;
+  position: relative;
+  /* panel에서 발생하는 변화는 전부 효과를 받음 */
+  transition: all 0.7s ease-in;
+}
+
+.panel h3 {
+  font-size: 24px;
+  color: #fff;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  /* 초기화를 하면 필요없음 */
+  /* margin: 0; */
+  opacity: 0;
+}
+
+.panel.active {
+  flex: 4;
+}
+
+.panel.active h3 {
+  opacity: 1;
+  transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+
+  .panel:nth-of-type(2),
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(6) {
+    display: none;
+  }
+}
